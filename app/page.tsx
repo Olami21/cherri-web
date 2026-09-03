@@ -6,6 +6,7 @@ import {
   ArrowRight,
 } from 'lucide-react'
 import HowItWorks from '../components/HowItWorks'
+import SignupForm from '@/components/SignupForm';
 
 export default function HomePage() {
   return (
@@ -364,7 +365,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ================= EARLY ACCESS SIGNUP ================= */}
+            {/* ================= EARLY ACCESS SIGNUP ================= */}
       <section className="signup-section">
         <div className="wrap">
           <div className="signup-grid">
@@ -379,17 +380,7 @@ export default function HomePage() {
                 get in before everyone else.
               </p>
             </div>
-            <form className="signup-form">
-              <div>
-                <label htmlFor="name">Full name</label>
-                <input id="name" type="text" placeholder="Enter your name" />
-              </div>
-              <div>
-                <label htmlFor="email">Email address</label>
-                <input id="email" type="email" placeholder="hello@example.com" />
-              </div>
-              <button type="submit">Join early access</button>
-            </form>
+            <SignupForm />
           </div>
         </div>
       </section>
