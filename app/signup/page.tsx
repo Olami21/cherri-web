@@ -9,7 +9,7 @@ export default function SignupPage() {
   const [error, setError] = useState('')
   const router = useRouter()
 
-  const handleSignup = async (e) => {
+  const handleSignup = async (e: React.FormEvent) => {
     e.preventDefault()
     setError('')
 
@@ -32,7 +32,6 @@ export default function SignupPage() {
       }
     }
 
-        console.log('REDIRECTING TO ONBOARDING NOW')
     router.push('/onboarding/step-1')
   }
 

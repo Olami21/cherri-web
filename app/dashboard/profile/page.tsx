@@ -4,7 +4,7 @@ import { supabase } from '@/lib/supabase'
 import { useRouter } from 'next/navigation'
 
 export default function ProfilePage() {
-  const [userId, setUserId] = useState(null)
+  const [userId, setUserId] = useState<string | null>(null)
   const [fullName, setFullName] = useState('')
   const [heightCm, setHeightCm] = useState('')
   const [weightKg, setWeightKg] = useState('')
@@ -24,7 +24,7 @@ export default function ProfilePage() {
 
       setUserId(session.user.id)
 
-      const { data, error } = await supabase
+      const { data } = await supabase
         .from('profiles')
         .select('*')
         .eq('user_id', session.user.id)
@@ -43,7 +43,7 @@ export default function ProfilePage() {
     loadProfile()
   }, [router])
 
-  const handleSave = async (e) => {
+  const handleSave = async (e: React.FormEvent) => {
     e.preventDefault()
     setSaving(true)
     setMessage('')

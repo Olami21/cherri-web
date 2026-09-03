@@ -4,7 +4,7 @@ import { supabase } from '@/lib/supabase'
 import { useRouter } from 'next/navigation'
 
 export default function SettingsPage() {
-  const [email, setEmail] = useState('')
+  const [email, setEmail] = useState<string>('')
   const [newPassword, setNewPassword] = useState('')
   const [message, setMessage] = useState('')
   const [loading, setLoading] = useState(true)
@@ -17,13 +17,13 @@ export default function SettingsPage() {
         router.push('/login')
         return
       }
-      setEmail(session.user.email)
+      setEmail(session.user.email ?? '')
       setLoading(false)
     }
     checkUser()
   }, [router])
 
-  const handlePasswordChange = async (e) => {
+  const handlePasswordChange = async (e: React.FormEvent) => {
     e.preventDefault()
     setMessage('')
     const { error } = await supabase.auth.updateUser({ password: newPassword })
