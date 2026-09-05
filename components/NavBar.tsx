@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import { Menu, X } from 'lucide-react'
+import HeaderCTA from './HeaderCTA'
 
 const LINKS = [
   { href: '/about', label: 'About' },
@@ -47,9 +48,7 @@ export default function NavBar() {
             ))}
           </nav>
 
-          <Link href="/signup" className="btn-primary nav-cta">
-            Join early access
-          </Link>
+          <HeaderCTA className="btn-primary nav-cta" />
 
           <button
             className="nav-toggle"
@@ -81,9 +80,7 @@ export default function NavBar() {
             </Link>
           ))}
         </nav>
-        <Link href="/signup" className="btn-primary" onClick={() => setMenuOpen(false)}>
-          Join early access
-        </Link>
+        <HeaderCTA className="btn-primary" onClick={() => setMenuOpen(false)} />
       </div>
     </>
   )

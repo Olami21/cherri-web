@@ -2608,3 +2608,147 @@ button {
   font-size: 1.1rem;
   color: var(--forest);
 }
+
+.dash-home-wrap {
+  max-width: 640px;
+  margin: 3rem auto;
+  padding: 0 1.5rem;
+}
+
+.dash-home-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1.5rem;
+}
+
+.dash-home-subgreeting {
+  color: var(--muted);
+  margin-top: 0.3rem;
+}
+
+.dash-home-logout {
+  border: 1px solid var(--line);
+  background: var(--paper);
+  border-radius: 999px;
+  padding: 0.5rem 1rem;
+  font-size: 0.85rem;
+  cursor: pointer;
+  color: var(--muted);
+}
+
+.dash-quick-actions {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+}
+
+.dash-quick-btn {
+  text-align: center;
+  background: var(--forest);
+  color: var(--cream);
+  padding: 0.8rem 0.5rem;
+  border-radius: 12px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.dash-card {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 1.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.dash-card h2 {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  color: var(--ink);
+  margin-bottom: 0.75rem;
+}
+
+.dash-calorie-line {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  color: var(--forest);
+}
+
+.dash-calorie-sub {
+  color: var(--muted);
+  font-size: 0.9rem;
+  margin: 0.2rem 0 1rem;
+}
+
+.dash-macros {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.dash-macros span {
+  font-size: 0.8rem;
+  color: var(--muted);
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+.dash-row-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+}
+
+.dash-card-half {
+  margin-bottom: 0;
+}
+
+.dash-score-card {
+  text-align: center;
+}
+
+.dash-score-number {
+  font-family: var(--font-display);
+  font-size: 2.5rem;
+  color: var(--forest);
+  margin-bottom: 0.5rem;
+}
+
+.dash-card-link {
+  display: inline-block;
+  margin-top: 0.75rem;
+  color: var(--ember);
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.dash-meals-list {
+  list-style: none;
+}
+
+.dash-meals-list li {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem 0;
+  border-top: 1px solid var(--line);
+  color: var(--ink);
+}
+
+.dash-meals-list li:first-child {
+  border-top: none;
+}
+
+.dash-empty {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+@media (max-width: 600px) {
+  .dash-quick-actions,
+  .dash-row-cards {
+    grid-template-columns: 1fr 1fr;
+  }
+}
