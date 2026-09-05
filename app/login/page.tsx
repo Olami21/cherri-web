@@ -46,3 +46,6 @@ export default function LoginPage() {
     </div>
   )
 }
+<a href="/forgot-password" className="contact-form-note" style={{ display: 'block', marginTop: '1rem' }}>
+  Forgot your password?
+</a>

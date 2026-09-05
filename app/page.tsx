@@ -7,8 +7,14 @@ import {
 } from 'lucide-react'
 import HowItWorks from '../components/HowItWorks'
 import SignupForm from '@/components/SignupForm';
+import { client } from '@/lib/sanity/client';
+import { urlFor } from '@/lib/sanity/image';
+import { POSTS_QUERY } from '@/lib/sanity/queries';
 
-export default function HomePage() {
+export default async function HomePage() {
+  const posts = await client.fetch(POSTS_QUERY);
+  const recentPosts = posts.slice(0, 3);
+
   return (
     <main>
       {/* ================= HERO ================= */}
@@ -328,24 +334,51 @@ export default function HomePage() {
             </Link>
           </div>
 
-          <div className="blog-grid">
-            {[
-              { meta: 'Nutrition', fill: '#4E9F5C' },
-              { meta: 'Meal Planning', fill: '#C1362B' },
-              { meta: 'Mindset', fill: '#F6F1E4' },
-            ].map((card) => (
-              <div key={card.meta}>
-                <div className="blog-card-img">
-                  <svg viewBox="0 0 300 225" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-                    <circle cx="120" cy="110" r="60" fill={card.fill} opacity="0.9" />
-                    <circle cx="200" cy="150" r="60" fill={card.fill} opacity="0.5" />
-                  </svg>
+          {recentPosts.length === 0 ? (
+            <div className="blog-grid">
+              {[
+                { meta: 'Nutrition', fill: '#4E9F5C' },
+                { meta: 'Meal Planning', fill: '#C1362B' },
+                { meta: 'Mindset', fill: '#F6F1E4' },
+              ].map((card) => (
+                <div key={card.meta}>
+                  <div className="blog-card-img">
+                    <svg viewBox="0 0 300 225" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+                      <circle cx="120" cy="110" r="60" fill={card.fill} opacity="0.9" />
+                      <circle cx="200" cy="150" r="60" fill={card.fill} opacity="0.5" />
+                    </svg>
+                  </div>
+                  <div className="blog-card-meta">{card.meta}</div>
+                  <h3>New posts coming soon</h3>
                 </div>
-                <div className="blog-card-meta">{card.meta}</div>
-                <h3>New posts coming soon</h3>
-              </div>
-            ))}
-          </div>
+              ))}
+            </div>
+          ) : (
+            <div className="blog-grid">
+              {recentPosts.map((post: any) => (
+                <Link key={post._id} href={`/blog/${post.slug.current}`}>
+                  <div className="blog-card-img">
+                    {post.coverImage ? (
+                      <img
+                        src={urlFor(post.coverImage).width(400).height(300).url()}
+                        alt={post.title}
+                        style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                      />
+                    ) : (
+                      <svg viewBox="0 0 300 225" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+                        <circle cx="120" cy="110" r="60" fill="#4E9F5C" opacity="0.9" />
+                        <circle cx="200" cy="150" r="60" fill="#4E9F5C" opacity="0.5" />
+                      </svg>
+                    )}
+                  </div>
+                  {post.category && (
+                    <div className="blog-card-meta">{post.category}</div>
+                  )}
+                  <h3>{post.title}</h3>
+                </Link>
+              ))}
+            </div>
+          )}
         </div>
       </section>
 
