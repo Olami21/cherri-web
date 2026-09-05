@@ -51,6 +51,7 @@ export default function HomePage() {
               alt="A plated Nigerian dish"
               fill
               priority
+              sizes="(max-width: 768px) 100vw, 640px"
               style={{ objectFit: 'cover' }}
             />
             <div className="hero-float-card">
@@ -120,6 +121,7 @@ export default function HomePage() {
               src="/images/approach-prep.jpg"
               alt="Preparing fresh ingredients"
               fill
+              sizes="(max-width: 768px) 100vw, 640px"
               style={{ objectFit: 'cover' }}
             />
           </div>

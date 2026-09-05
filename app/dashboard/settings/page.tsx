@@ -44,37 +44,43 @@ export default function SettingsPage() {
     setMessage('Account deletion requires contacting support for now.')
   }
 
-  if (loading) return <p style={{ padding: 40 }}>Loading...</p>
+  if (loading) {
+    return (
+      <main className="profile-wrap">
+        <p className="summary-hint">Loading...</p>
+      </main>
+    )
+  }
 
   return (
-    <div style={{ maxWidth: 400, margin: '80px auto' }}>
-      <h1>Account Settings</h1>
-      <p style={{ color: '#666', marginTop: 8 }}>Logged in as: {email}</p>
+    <main className="profile-wrap">
+      <h1 className="section-title">Account settings</h1>
+      <p className="profile-field-hint">Logged in as: {email}</p>
 
-      <form onSubmit={handlePasswordChange} style={{ marginTop: 32 }}>
-        <h3>Change Password</h3>
-        <input
-          type="password"
-          placeholder="New password"
-          value={newPassword}
-          onChange={(e) => setNewPassword(e.target.value)}
-          required
-          style={{ display: 'block', width: '100%', marginBottom: 10, padding: 8 }}
-        />
-        <button type="submit" style={{ padding: '8px 16px' }}>Update Password</button>
+      <form onSubmit={handlePasswordChange} className="profile-form settings-password-form">
+        <h3>Change password</h3>
+        <div className="log-meal-field">
+          <input
+            type="password"
+            placeholder="New password"
+            value={newPassword}
+            onChange={(e) => setNewPassword(e.target.value)}
+            required
+          />
+        </div>
+        <button type="submit" className="log-meal-save-btn">
+          Update password
+        </button>
       </form>
 
-      {message && <p style={{ marginTop: 16 }}>{message}</p>}
+      {message && <p className="profile-message">{message}</p>}
 
-      <div style={{ marginTop: 48, borderTop: '1px solid #eee', paddingTop: 24 }}>
-        <h3 style={{ color: '#c00' }}>Danger Zone</h3>
-        <button
-          onClick={handleDeleteAccount}
-          style={{ padding: '8px 16px', background: '#c00', color: '#fff', border: 'none', borderRadius: 4, marginTop: 8 }}
-        >
-          Delete Account
+      <div className="settings-danger-zone">
+        <h3>Danger zone</h3>
+        <button onClick={handleDeleteAccount} className="settings-delete-btn">
+          Delete account
         </button>
       </div>
-    </div>
+    </main>
   )
 }

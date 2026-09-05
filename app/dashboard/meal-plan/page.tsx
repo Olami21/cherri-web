@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { supabase } from '@/lib/supabase';
 import {
   generateDayPlan,
@@ -26,6 +26,26 @@ export default function MealPlanPage() {
   const [planType, setPlanType] = useState<'daily' | 'weekly' | null>(null);
   const [dayPlans, setDayPlans] = useState<DayPlan[]>([]);
   const [activeDay, setActiveDay] = useState(0);
+
+  useEffect(() => {
+    async function loadDefaultBudget() {
+      const { data: userData } = await supabase.auth.getUser();
+      const user = userData?.user;
+      if (!user) return;
+
+      const { data: profile } = await supabase
+        .from('profiles')
+        .select('daily_budget_naira')
+        .eq('user_id', user.id)
+        .single();
+
+      if (profile?.daily_budget_naira) {
+        setBudget(String(profile.daily_budget_naira));
+      }
+    }
+
+    loadDefaultBudget();
+  }, []);
 
   async function handleGenerate(type: 'daily' | 'weekly') {
     const budgetNum = parseFloat(budget);

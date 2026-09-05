@@ -3246,3 +3246,69 @@ button {
   font-size: 0.9rem;
   margin: 0.3rem 0 0.5rem;
 }
+
+.profile-wrap {
+  max-width: 480px;
+  margin: 3rem auto;
+  padding: 0 1.5rem;
+}
+
+.profile-form {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.profile-form input,
+.profile-form select {
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 0.8rem 1rem;
+  font-size: 1rem;
+  font-family: var(--font-ui);
+  background: var(--paper);
+}
+
+.profile-field-hint {
+  color: var(--muted);
+  font-size: 0.8rem;
+  margin-top: 0.3rem;
+}
+
+.profile-message {
+  color: var(--sprout);
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+}
+
+.settings-password-form h3 {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  color: var(--ink);
+}
+
+.settings-danger-zone {
+  margin-top: 3rem;
+  border-top: 1px solid var(--line);
+  padding-top: 1.5rem;
+}
+
+.settings-danger-zone h3 {
+  font-family: var(--font-display);
+  color: var(--ember);
+  font-size: 1.1rem;
+  margin-bottom: 0.75rem;
+}
+
+.settings-delete-btn {
+  background: var(--ember);
+  color: var(--cream);
+  border: none;
+  border-radius: 10px;
+  padding: 0.7rem 1.2rem;
+  font-family: var(--font-ui);
+  font-weight: 600;
+  cursor: pointer;
+}
