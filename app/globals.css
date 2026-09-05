@@ -2909,3 +2909,169 @@ button {
 .grocery-total strong {
   color: var(--forest);
 }
+
+.tools-wrap {
+  padding-bottom: 4rem;
+}
+
+.tools-hero {
+  padding: 6rem 0 3rem;
+  text-align: center;
+}
+
+.tools-grid-section {
+  padding: 2rem 0;
+}
+
+.tools-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.tools-card {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 2rem;
+}
+
+.tools-card h2 {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  color: var(--ink);
+}
+
+.tools-card p {
+  color: var(--muted);
+  margin: 0.75rem 0 1.25rem;
+  line-height: 1.6;
+}
+
+.tools-card-link {
+  color: var(--ember);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.public-planner-wrap {
+  max-width: 560px;
+  margin: 4rem auto;
+  padding: 0 1.5rem;
+}
+
+.public-planner-hint {
+  color: var(--muted);
+  font-size: 0.8rem;
+  margin-top: 0.3rem;
+}
+
+.public-planner-results {
+  margin-top: 2.5rem;
+}
+
+.public-planner-save-btn {
+  display: block;
+  text-align: center;
+  margin-top: 1.5rem;
+}
+
+.log-meal-field select {
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 0.8rem 1rem;
+  font-size: 1rem;
+  background: var(--paper);
+}
+
+@media (max-width: 768px) {
+  .tools-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.estimator-wrap {
+  max-width: 560px;
+  margin: 4rem auto;
+  padding: 0 1.5rem;
+}
+
+.estimator-disclaimer {
+  background: var(--cream);
+  border-radius: 10px;
+  padding: 0.9rem 1.1rem;
+  color: var(--muted);
+  font-size: 0.85rem;
+  margin: 1.25rem 0 1.75rem;
+}
+
+.estimator-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.estimator-form input {
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 0.8rem 1rem;
+}
+
+.estimator-results {
+  margin-top: 2rem;
+}
+
+.estimator-totals {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.estimator-save-btn {
+  display: block;
+  text-align: center;
+  margin-top: 1.25rem;
+}
+
+.estimator-reference {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--line);
+}
+
+.estimator-reference h2 {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  color: var(--ink);
+  margin-bottom: 1rem;
+}
+
+.estimator-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.estimator-table th,
+.estimator-table td {
+  text-align: left;
+  padding: 0.6rem 0.5rem;
+  border-bottom: 1px solid var(--line);
+  font-size: 0.9rem;
+}
+
+.estimator-table th {
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.estimator-table td {
+  color: var(--ink);
+}
+
+.estimator-table-note {
+  color: var(--muted);
+  font-size: 0.8rem;
+  line-height: 1.6;
+  margin-top: 1rem;
+}
